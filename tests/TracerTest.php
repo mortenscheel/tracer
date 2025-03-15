@@ -57,10 +57,14 @@ it('can ignore a specific line in a file', function (): void {
 it('can format the frame location', function (): void {
     expect(StackTrace::getTrace()->first()->location())->toBe(__FILE__.':'.__LINE__);
 });
+it('can format the frame location using basename', function (): void {
+    expect(StackTrace::getTrace()->first()->location(true))->toBe(basename(__FILE__).':'.__LINE__);
+});
 it('can seralize the frame to array', function (): void {
+    $line = __LINE__ + 1;
     expect(StackTrace::getTrace()->first()->toArray())->toBe([
         'file' => __FILE__,
-        'line' => 61,
+        'line' => $line,
         'function' => 'getTrace',
         'class' => StackTrace::class,
         'type' => '::',

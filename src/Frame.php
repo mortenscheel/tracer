@@ -40,9 +40,11 @@ class Frame implements Arrayable
         return str_contains($this->file, DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR);
     }
 
-    public function location(): string
+    public function location(bool $baseName = false): string
     {
-        return "$this->file:$this->line";
+        $file = $baseName ? basename($this->file) : $this->file;
+
+        return "$file:$this->line";
     }
 
     public function editorLink(): string
