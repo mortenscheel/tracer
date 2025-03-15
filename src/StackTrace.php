@@ -22,7 +22,7 @@ class StackTrace extends Collection
             ->values()
             ->mapInto(Frame::class);
 
-        return self::make($frames);
+        return new self($frames);
     }
 
     public function ignoreVendor(): self
