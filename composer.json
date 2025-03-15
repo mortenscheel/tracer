@@ -1,6 +1,6 @@
 {
     "name": "mortenscheel/tracer",
-    "description": "A skeleton repository for my packages",
+    "description": "A PHP library for advanced stack trace handling and debugging.",
     "license": "MIT",
     "keywords": [
         "php",
